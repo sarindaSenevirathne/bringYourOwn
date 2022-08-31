@@ -2,6 +2,10 @@ import ballerina/http;
 
 # A service representing a network-accessible API
 # bound to port `9090`.
+
+configurable string test = ?;
+configurable string testPass = ?;
+
 service / on new http:Listener(9090) {
 
     # A resource for generating greetings
@@ -12,6 +16,6 @@ service / on new http:Listener(9090) {
         if name is "" {
             return error("name should not be empty!");
         }
-        return "Hello, " + name;
+        return "Hello, " + test + " "+testPass;
     }
 }
